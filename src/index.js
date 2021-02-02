@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import Counters from './components/counters';
+import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 import reportWebVitals from './reportWebVitals';
-
+// import NavBar from './components/navbar';
 
 ReactDOM.render(
-    <Counters />,
+    <App />,
   document.getElementById('root')
 );
 
