@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 
 class Counter extends Component {
-    state = { 
-        value : this.props.value,
-        tags: ["tag1", "tag2", "tag3", "tag4"],
+    // state = { 
+    //     value : this.props.counter.value,
+    //     // tags: ["tag1", "tag2", "tag3", "tag4"],
 
-        // imageUrl : 'https://picsum.photos/200'
-     };
+    //     // imageUrl : 'https://picsum.photos/200'
+    //  };    
     //  styles = {
     //      fontSize : 20,
     //      fontWeight : "bold"
@@ -17,10 +17,10 @@ class Counter extends Component {
     //     super();
     //     this.handleIncrement = this.handleIncrement.bind(this);
     // }
-    handleIncrement = product => {
-        console.log(product); 
-        this.setState({ value: this.state.value + 1});
-    };
+    // handleIncrement = product => {
+    //     // console.log(product); 
+    //     this.setState({ value: this.state.value + 1});
+    // };
     // doHandleIncrement = () => {
     //     this.handleIncrement({ id: 1});
     // };
@@ -37,16 +37,19 @@ class Counter extends Component {
         
         return (
             <div>
-                <h4>Counter: {this.props.id}</h4>
+                <h4>Counter: {this.props.counter.id}</h4>
                 {/* <img src={this.state.imageUrl} alt="image"/> */}
                 {/* <span style={this.styles}className="badge badge-primary m-2">{this.formatCount()}</span> */}
                 {/* <span style={{fontSize:30}}className="badge badge-primary m-2">{this.formatCount()}</span> */}
                 {/* <span className="badge badge-primary m-2">{this.formatCount()}</span> */}
                  <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={(product) => 
-        this.handleIncrement( product )} 
-                className="btn btn-secondary sm">
+                <button onClick={() =>this.props.onIncrement(this.props.counter )} 
+                className="btn btn-secondary btn-sm m-2">
                     Increment
+                    </button>
+                <button  onClick={()=>this.props.onDelete(this.props.counter.id) }
+                className="btn btn-danger btn-sm m-2">
+                    Delete
                     </button>
                 {/* <h1 >hello</h1> */}
                 {/* {this.state.tags.length === 0 && "please enter a tag."}
@@ -56,13 +59,13 @@ class Counter extends Component {
     }
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += (this.state.value === 0) ? "warning" : "primary";
+        classes += (this.props.counter.value === 0) ? "warning" : "primary";
         return classes;
     }
 
     formatCount(){
-        const {value: count} = this.state;
-        return count === 0?'zero': count;
+        const {value} = this.props.counter;
+        return value === 0?'zero': value;
     }
 }
 
