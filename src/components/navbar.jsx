@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // const NavBar = () =>{
 
@@ -15,11 +15,18 @@ import React, { Component } from 'react';
 
 // export default NavBar;
 const NavBar = ({ totalCounters }) => {
-    return (<nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><strong>Navigation Bar <span className="badge badge-secondary sm m-1">{totalCounters}</span></strong></span>
+
+
+    console.log("NavBar rendered")
+
+
+
+    return (<nav className="navbar navbar-light bg-light">
+        <span className="navbar-brand mb-0 h1">Navigation Bar <span className="badge badge-secondary sm m-1">{totalCounters}</span></span>
     </nav>
 
     );
+
 }
 
 export default NavBar;
